@@ -19,8 +19,12 @@
   }
 }
 
+:root {
+  --background: #ffc0cb; /* soft pink */
+  --foreground: #333; /* text color */
+}
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #fdf2f8; /* Tailwind pink-50 */
+  color: #333; /* foreground text color */
   font-family: Arial, Helvetica, sans-serif;
 }
