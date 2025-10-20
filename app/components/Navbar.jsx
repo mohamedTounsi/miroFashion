@@ -50,12 +50,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2"
           >
-            <Image
-              src="/mriofashionlogo1.png"
-              alt="Logo"
-              width={100}
-              height={100}
-            />
+            <Image src="/mirologo3.png" alt="Logo" width={100} height={100} />
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -72,8 +67,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`flex items-center gap-1 font-medium transition-colors ${
                     link.highlight
-                      ? "text-rose-500 hover:text-rose-600"
-                      : "text-gray-700 hover:text-rose-500"
+                      ? "text-blue-500 hover:text-blue-600"
+                      : "text-gray-700 hover:text-blue-500"
                   }`}
                 >
                   {link.name}
@@ -82,34 +77,13 @@ export default function Navbar() {
                   )}
                 </a>
                 {/* Hover underline */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-zinc-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
               </motion.div>
             ))}
           </div>
 
           {/* Right Icons */}
           <div className="flex items-center gap-4">
-            {/* Cart */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative"
-              aria-label="Shopping cart"
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-rose-200 hover:shadow-xl transition-all">
-                <ShoppingBag className="w-5 h-5" />
-              </div>
-              {cartCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
-                >
-                  {cartCount}
-                </motion.span>
-              )}
-            </motion.button>
-
             {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.9 }}

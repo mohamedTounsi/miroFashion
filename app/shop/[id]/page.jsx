@@ -3,71 +3,105 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Heart, ZoomIn, X } from "lucide-react";
+import { Facebook, MessageCircle, ZoomIn, X } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 const produits = [
   {
     id: 1,
-    nom: "Robe Élégante Rose",
+    nom: "Espadrille Samba Noir",
     prix: 120,
-    type: "Robe",
-    description:
-      "Une robe élégante rose parfaite pour vos soirées. Fabriquée en soie naturelle avec des finitions détaillées pour un look sophistiqué et confortable.",
-    image: "/robe1.png",
-    sizes: ["XS", "S", "M", "L", "XL"],
+    categorie: "Hommes",
+    type: "Espadrille",
+    image: "/spadri1.jpeg",
+    sizes: ["39", "40", "41", "42", "43"],
   },
   {
     id: 2,
-    nom: "Sneakers Blanches",
+    nom: "Espadrille Adidas Noir",
     prix: 180,
-    type: "Sneakers",
-    description:
-      "Des sneakers blanches confortables et stylées. Semelle en caoutchouc durable et intérieur en cuir respirant pour un confort optimal toute la journée.",
-    image: "/snakers1.png",
-    sizes: ["36", "37", "38", "39", "40", "41", "42"],
+    categorie: "Hommes",
+    type: "Espadrille",
+    image: "/spadri2.jpeg",
+    sizes: ["39", "40", "41", "42", "43"],
   },
   {
     id: 3,
-    nom: "T-shirt Basique",
+    nom: "Espadrille Adidas Noir",
     prix: 60,
-    type: "T-shirt",
-    description:
-      "Un T-shirt basique en coton doux. Coupe classique qui convient à toutes les morphologies, parfait pour un usage quotidien ou décontracté.",
-    image: "/tshirt1.png",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    categorie: "Hommes",
+    type: "Espadrille",
+    image: "/spadri3.jpeg",
+    sizes: ["39", "40", "41", "42", "43"],
+  },
+  {
+    id: 4,
+    nom: "Espadrille Nike Uptempo Noir",
+    prix: 90,
+    categorie: "Hommes",
+    type: "Espadrille",
+    image: "/spadri4.jpeg",
+    sizes: ["39", "40", "41", "42", "43"],
+  },
+  {
+    id: 5,
+    nom: "Pantalon Cargo Beige",
+    prix: 70,
+    categorie: "Hommes",
+    type: "Pantalon",
+    image: "/serwel.jpeg",
+    sizes: ["S", "M", "L", "XL"],
+  },
+  {
+    id: 6,
+    nom: "Pantalon Cargo Vert",
+    prix: 70,
+    categorie: "Hommes",
+    type: "Pantalon",
+    image: "/serwel1.jpeg",
+    sizes: ["S", "M", "L", "XL"],
   },
 ];
 
 export default function ProductPage() {
+  const handleFacebookShare = () => {
+    const profileId = "61582440057997"; // your Facebook profile ID
+    const message = encodeURIComponent(
+      `Bonjour! Je suis intéressé par le produit "${product.nom}". Image: ${window.location.origin}${product.image}`
+    );
+    const messengerLink = `https://m.me/${profileId}?text=${message}`;
+    window.open(messengerLink, "_blank");
+  };
+
   const { id } = useParams();
   const product = produits.find((p) => p.id === parseInt(id));
 
-  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[2] || "M");
-  const [quantity, setQuantity] = useState(1);
-  const [isWishlisted, setIsWishlisted] = useState(false);
   const [zoomImage, setZoomImage] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 to-rose-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-sky-100">
         <p className="text-gray-600 text-lg">Produit non trouvé.</p>
       </div>
     );
   }
 
-  const buttonHover = { scale: 1.05 };
-  const tapEffect = { scale: 0.95 };
+  const handleWhatsAppShare = () => {
+    const text = encodeURIComponent(
+      `👋 Bonjour ! Je suis intéressé par le produit "${product.nom}".`
+    );
+    window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${text}`, "_blank");
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-50 text-gray-800 py-15">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-sky-100 text-gray-800 py-15">
       <div className="fixed top-0 right-0 left-0 z-50">
         <Navbar />
       </div>
 
-      {/* Image Zoom Modal */}
+      {/* Zoom Image Modal */}
       <AnimatePresence>
         {zoomImage && (
           <motion.div
@@ -81,7 +115,7 @@ export default function ProductPage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-4 right-4 text-white hover:text-rose-300 transition-colors"
+              className="absolute top-4 right-4 text-white hover:text-sky-300 transition-colors"
               onClick={(e) => {
                 e.stopPropagation();
                 setZoomImage(false);
@@ -104,21 +138,17 @@ export default function ProductPage() {
       <main className="max-w-7xl mx-auto mt-32 px-4 lg:px-8 flex flex-col lg:flex-row gap-12 lg:gap-16">
         {/* Product Image Section */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="lg:w-1/2 flex flex-col items-center"
         >
           <div className="relative group">
-            <motion.div
-              className="bg-white rounded-3xl shadow-2xl p-8 border-2 border-rose-100 overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
+            <div className="bg-white rounded-3xl shadow-2xl p-8 border-2 border-sky-100 overflow-hidden">
               <motion.img
                 initial={{ opacity: 0 }}
                 animate={{ opacity: imageLoaded ? 1 : 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 src={product.image}
                 alt={product.nom}
                 className="w-full h-[500px] object-contain cursor-zoom-in"
@@ -132,7 +162,7 @@ export default function ProductPage() {
                   </div>
                 </div>
               )}
-            </motion.div>
+            </div>
 
             {/* Zoom Button */}
             <motion.button
@@ -148,103 +178,54 @@ export default function ProductPage() {
 
         {/* Product Details Section */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4 }}
           className="lg:w-1/2 flex flex-col gap-6 py-4"
         >
-          <div className="flex justify-between items-start">
-            <div>
-              <span className="inline-block px-3 py-1 bg-rose-100 text-rose-700 rounded-full text-sm font-medium mb-2">
-                {product.type}
-              </span>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                {product.nom}
-              </h1>
-            </div>
-          </div>
+          <span className="inline-block px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-medium mb-2">
+            {product.type}
+          </span>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            {product.nom}
+          </h1>
 
-          <p className="text-3xl font-extrabold text-rose-600 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+          <p className="text-3xl font-extrabold text-sky-600">
             {product.prix} TND
           </p>
 
-          <p className="text-gray-600 text-lg leading-relaxed">
-            {product.description}
-          </p>
-
-          {/* Size Selection */}
-          <div className="space-y-4">
+          <div className="space-y-4 mt-4">
             <label className="font-semibold text-gray-700 text-lg">
-              Taille :
+              Tailles disponibles :
             </label>
             <div className="flex flex-wrap gap-3">
               {product.sizes.map((size) => (
-                <motion.button
+                <span
                   key={size}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={tapEffect}
-                  className={`px-6 py-3 rounded-xl font-semibold border-2 transition-all ${
-                    selectedSize === size
-                      ? "bg-rose-500 text-white border-rose-500 shadow-lg"
-                      : "bg-white text-gray-700 border-gray-300 hover:border-rose-300 hover:text-rose-600"
-                  }`}
-                  onClick={() => setSelectedSize(size)}
+                  className="px-5 py-2 bg-white border-2 border-sky-200 text-sky-700 rounded-xl font-medium shadow-sm"
                 >
                   {size}
-                </motion.button>
+                </span>
               ))}
             </div>
           </div>
 
-          {/* Quantity Selection */}
-          <div className="space-y-4">
-            <label className="font-semibold text-gray-700 text-lg">
-              Quantité :
-            </label>
-            <div className="flex items-center gap-4">
-              <motion.button
-                whileHover={buttonHover}
-                whileTap={tapEffect}
-                className="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xl hover:bg-rose-200 transition-colors"
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              >
-                -
-              </motion.button>
-              <span className="text-xl font-semibold w-8 text-center">
-                {quantity}
-              </span>
-              <motion.button
-                whileHover={buttonHover}
-                whileTap={tapEffect}
-                className="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xl hover:bg-rose-200 transition-colors"
-                onClick={() => setQuantity(quantity + 1)}
-              >
-                +
-              </motion.button>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          {/* Share Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <motion.button
-              whileHover={buttonHover}
-              whileTap={tapEffect}
-              className="flex-1 py-4 rounded-2xl bg-rose-500 text-white font-semibold text-lg hover:bg-rose-600 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleFacebookShare}
+              className="flex-1 py-4 rounded-2xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-colors shadow-md flex items-center justify-center gap-3"
             >
-              <ShoppingCart size={24} />
-              Ajouter au panier
-            </motion.button>
-            <motion.button
-              whileHover={buttonHover}
-              whileTap={tapEffect}
-              className="flex-1 py-4 rounded-2xl border-2 border-rose-500 text-rose-500 font-semibold text-lg hover:bg-rose-500 hover:text-white transition-colors shadow-lg hover:shadow-xl"
-            >
-              Acheter maintenant
+              <Facebook size={24} />
+              Envoyer sur Messenger
             </motion.button>
           </div>
         </motion.div>
       </main>
-      <div className="mt-15">
+
+      <div className="mt-20">
         <Footer />
       </div>
     </div>

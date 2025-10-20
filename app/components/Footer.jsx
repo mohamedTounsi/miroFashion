@@ -14,8 +14,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white to-pink-200/90 text-gray-700 border-t border-gray-200 py-12 px-6">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-b from-white to-zinc-300 text-gray-700 border-t border-gray-200 py-12 px-6">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
         {/* Logo and description */}
         <div className="space-y-4">
           <motion.div
@@ -25,14 +25,14 @@ export default function Footer() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/mriofashionlogo1.png"
+              src="/mirologo3.png"
               alt="MiroFashion Logo"
               width={120}
               height={40}
               className="object-contain"
             />
           </motion.div>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm max-w-[250px] text-gray-600 leading-relaxed">
             Découvrez les dernières tendances de la mode féminine et masculine.
             Style, élégance et confort — tout ce dont vous rêvez est ici.
           </p>
@@ -60,28 +60,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Customer Service */}
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Service Client
-          </h3>
-          <ul className="space-y-3 text-sm">
-            {["Guide des tailles", "Livraison & Retours", "FAQ", "Contact"].map(
-              (link) => (
-                <li key={link}>
-                  <motion.a
-                    whileHover={{ x: 5 }}
-                    href="#"
-                    className="text-gray-600 hover:text-rose-500 transition-colors duration-200"
-                  >
-                    {link}
-                  </motion.a>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-
         {/* Contact & Social */}
         <div className="space-y-6">
           {/* Contact Info */}
@@ -92,19 +70,19 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3 text-gray-600">
                 <div className="p-1.5 bg-gray-100 rounded-lg">
-                  <MapPin size={14} className="text-rose-500" />
+                  <MapPin size={14} className="text-blue-500" />
                 </div>
                 Tunis, Tunisie
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <div className="p-1.5 bg-gray-100 rounded-lg">
-                  <Phone size={14} className="text-rose-500" />
+                  <Phone size={14} className="text-blue-500" />
                 </div>
                 +216 55 123 456
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <div className="p-1.5 bg-gray-100 rounded-lg">
-                  <Mail size={14} className="text-rose-500" />
+                  <Mail size={14} className="text-blue-500" />
                 </div>
                 contact@mirofashion.com
               </li>
