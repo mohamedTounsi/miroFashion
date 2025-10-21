@@ -28,8 +28,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Acceuil", href: "/" },
-    { name: "Femmes", href: "/shop?categorie=Femmes" },
-    { name: "Hommes", href: "/shop?categorie=Hommes" },
+    { name: "Femmes", href: "/shop" },
+    { name: "Hommes", href: "/shop" },
     { name: "Boutique", href: "/shop" },
   ];
 

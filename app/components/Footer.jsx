@@ -78,7 +78,7 @@ export default function Footer() {
                 <div className="p-1.5 bg-gray-100 rounded-lg">
                   <Phone size={14} className="text-blue-500" />
                 </div>
-                +216 55 123 456
+                +216 51 852 480
               </li>
               <li className="flex items-center gap-3 text-gray-600">
                 <div className="p-1.5 bg-gray-100 rounded-lg">
@@ -128,7 +128,10 @@ export default function Footer() {
           </div>
           <p>
             Powered by{" "}
-            <a className="underline" href="">
+            <a
+              className="underline"
+              href="https://portfoliomt-kohl.vercel.app/"
+            >
               MT
             </a>
           </p>
