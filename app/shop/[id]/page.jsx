@@ -96,7 +96,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-sky-100 text-gray-800 py-15">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-sky-100 text-gray-800 pt-15">
       <div className="fixed top-0 right-0 left-0 z-50">
         <Navbar />
       </div>
