@@ -103,24 +103,28 @@ export default function ShopContent() {
       {/* CONTENU PRINCIPAL */}
       <div className="mx-auto pt-32 md:pt-28 flex flex-col md:flex-row px-5 gap-8 pb-10">
         {/* BARRE LATÉRALE */}
-        <aside className="w-full md:w-1/4 lg:w-1/5 bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-100 p-6 md:sticky md:top-28 self-start">
+        <aside className="w-full md:w-1/4 lg:w-1/5 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-md border border-gray-200 p-5 md:sticky md:top-28 self-start transition-all duration-300">
+          {/* Header */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-r from-zinc-500 to-gray-600 rounded-xl">
+            <div className="p-2.5 bg-gradient-to-r from-gray-500 to-gray-700 rounded-xl shadow-sm">
               <Filter className="text-white w-5 h-5" />
             </div>
-            <h2 className="text-xl font-bold ">Filtres & Tri</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-gray-800">
+              Filtres & Tri
+            </h2>
           </div>
 
-          <div className="flex flex-wrap gap-5 md:gap-0 md:flex-col md:space-y-6">
-            {/* Catégories */}
+          {/* Options */}
+          <div className="space-y-5">
+            {/* Collection */}
             <div>
-              <label className="block font-semibold text-gray-700 mb-3 text-sm uppercase tracking-wide">
+              <label className="block font-medium text-gray-700 mb-2 text-sm uppercase tracking-wide">
                 Collection
               </label>
               <select
                 value={filtreCategorie}
                 onChange={(e) => setFiltreCategorie(e.target.value)}
-                className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-white shadow-sm hover:shadow-md"
+                className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-gray-700 text-sm shadow-sm focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-all duration-200"
               >
                 <option value="Tous">Toutes les collections</option>
                 <option value="Femmes">Femmes</option>
@@ -128,15 +132,15 @@ export default function ShopContent() {
               </select>
             </div>
 
-            {/* Types */}
+            {/* Type */}
             <div>
-              <label className="block font-semibold text-gray-700 mb-3 text-sm uppercase tracking-wide">
+              <label className="block font-medium text-gray-700 mb-2 text-sm uppercase tracking-wide">
                 Type
               </label>
               <select
                 value={filtreType}
                 onChange={(e) => setFiltreType(e.target.value)}
-                className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-white shadow-sm hover:shadow-md"
+                className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-gray-700 text-sm shadow-sm focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-all duration-200"
               >
                 <option value="Tous">Tous les types</option>
                 <option value="T-shirt">T-shirt</option>
@@ -146,15 +150,15 @@ export default function ShopContent() {
               </select>
             </div>
 
-            {/* Tri par prix */}
+            {/* Prix */}
             <div>
-              <label className="block font-semibold text-gray-700 mb-3 text-sm uppercase tracking-wide">
+              <label className="block font-medium text-gray-700 mb-2 text-sm uppercase tracking-wide">
                 Trier par prix
               </label>
               <select
                 value={triPrix}
                 onChange={(e) => setTriPrix(e.target.value)}
-                className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-white shadow-sm hover:shadow-md"
+                className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-gray-700 text-sm shadow-sm focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-all duration-200"
               >
                 <option value="Aucun">Ordre par défaut</option>
                 <option value="Croissant">Prix croissant</option>
@@ -175,7 +179,7 @@ export default function ShopContent() {
               >
                 {/* IMAGE CONTAINER - Full visible image without background */}
                 <div
-                  className="relative w-full h-100 overflow-hidden cursor-pointer bg-transparent"
+                  className="relative w-full md:h-100 overflow-hidden cursor-pointer bg-transparent"
                   onClick={() => router.push(`/shop/${produit.id}`)}
                 >
                   <img
