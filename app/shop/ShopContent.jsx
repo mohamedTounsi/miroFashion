@@ -32,7 +32,7 @@ const produits = [
     prix: 60,
     categorie: "Hommes",
     type: "Espadrille",
-    image: "/spadri3.png",
+    image: "/spadri6.png",
     note: 4.2,
   },
   {

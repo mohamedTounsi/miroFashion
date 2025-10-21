@@ -61,7 +61,7 @@ const produits = [
     prix: 60,
     categorie: "Hommes",
     type: "Espadrille",
-    image: "/spadri3.png",
+    image: "/spadri6.png",
     sizes: ["39", "40", "41", "42", "43"],
     description:
       "Espadrille légère et confortable, idéale pour la saison estivale. Design épuré et moderne.",
@@ -89,7 +89,7 @@ const produits = [
     prix: 70,
     categorie: "Hommes",
     type: "Pantalon",
-    image: "/serwel2.png",
+    image: "/serwel1.png",
     sizes: ["S", "M", "L", "XL"],
     description:
       "Pantalon cargo beige en coton résistant. Multiples poches pratiques pour un style utilitaire chic.",
@@ -108,7 +108,7 @@ const produits = [
     prix: 70,
     categorie: "Hommes",
     type: "Pantalon",
-    image: "/serwel1.png",
+    image: "/serwel2.png",
     sizes: ["S", "M", "L", "XL"],
     description:
       "Pantalon cargo vert militaire avec coupe moderne. Parfait pour un look casual élégant.",
